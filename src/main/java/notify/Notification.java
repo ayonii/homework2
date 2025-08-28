@@ -6,11 +6,9 @@ public class Notification {
     private Priority priority;
     private static int nextId = 1;
 
-    // Конструктор без аргументов
+    // Конструктор без аргументов — делегирует конструктору с параметрами
     public Notification() {
-        this.id = nextId++;
-        this.message = "empty";
-        this.priority = Priority.NORMAL;
+        this("empty", Priority.NORMAL);
     }
 
     // Конструктор с аргументами
@@ -27,7 +25,7 @@ public class Notification {
 
     // Перегруженный метод send с дополнительной строкой
     public void send(String extra) {
-        System.out.println(toString() + " | Extra: " + extra);
+        System.out.println(this + " | Extra: " + extra);
     }
 
     // Переопределение toString()
